@@ -1,34 +1,22 @@
-
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-const generateToken = (user) => {
-  const payload = {
-    id: user.id,
-    username: user.username,
-    name: user.name
-  };
-  return jwt.sign(
-    payload,
-    process.env.SECRET_KEY,
-    { expiresIn: '1h' }
-  );
-};
+
+const JWT_SECRET = 'your_super_secret_jwt_key';
 
 const authMiddleware = (req, res, next) => {
-  const token = req.headers['authorization']?.split(' ')[1];
-  if (!token) {
-    return res.status(401).send({ error: 'No token provided' });
-  }
-  jwt.verify(token, process.env.SECRET_KEY, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ error: 'Invalid token' });
+    const token = req.cookies.token;
+
+    if (!token) {
+        return res.redirect('/login');
     }
-    req.user = decoded;
-    next();
-  });
+
+    try {
+        const decoded = jwt.verify(token, JWT_SECRET);
+        req.user = decoded; // Adiciona os dados do usuário à requisição
+        next();
+    } catch (err) {
+        res.clearCookie('token');
+        return res.redirect('/login');
+    }
 };
 
-module.exports = {
-  generateToken,
-  authMiddleware
-}
+module.exports = authMiddleware;

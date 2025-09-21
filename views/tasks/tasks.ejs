@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Tarefas</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Minhas Tarefas</h1>
+        <a href="/logout">Sair</a>
+    </div>
+
+    <div class="main-content">
+        <div class="task-section new-task">
+            <h3>Nova Tarefa</h3>
+            <form action="/tasks" method="POST">
+                <div class="form-group">
+                    <label for="title">Título:</label>
+                    <input type="text" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descrição:</label>
+                    <textarea id="description" name="description"></textarea>
+                </div>
+                <button type="submit">Adicionar Tarefa</button>
+            </form>
+        </div>
+
+        <div class="task-section task-list">
+            <h3>Lista de Tarefas</h3>
+            <ul>
+                <% if (tasks && tasks.length > 0) { %>
+                    <% tasks.forEach(task => { %>
+                        <li>
+                            <strong><%= task.title %></strong>
+                            <% if (task.completed) { %>
+                                (Completa)
+                            <% } %>
+                            <p><%= task.description %></p>
+                            <a href="/tasks/edit/<%= task.id %>">Editar</a>
+                            <form action="/tasks/delete/<%= task.id %>" method="POST">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </li>
+                    <% }); %>
+                <% } else { %>
+                    <p>Nenhuma tarefa encontrada.</p>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

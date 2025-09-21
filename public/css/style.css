@@ -1,0 +1,168 @@
+:root {
+    --primary-color: #F8BBD0; /* Rosa pastel */
+    --secondary-color: #E1BEE7; /* Lilás pastel */
+    --background-color: #FCE4EC; /* Rosa claro */
+    --text-color: #333;
+    --border-color: #C2185B; /* Rosa escuro */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    color: var(--border-color);
+    margin: 0;
+}
+
+.header a {
+    color: var(--border-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.header a:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.task-section {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    flex: 1;
+}
+
+h3 {
+    color: var(--border-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+button:hover {
+    background-color: var(--border-color);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+li strong {
+    color: var(--border-color);
+    font-size: 1.2rem;
+}
+
+li p {
+    margin: 0.5rem 0;
+}
+
+li a {
+    color: var(--border-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-right: 1rem;
+}
+
+li form {
+    display: inline;
+}
+
+li form button {
+    width: auto;
+    padding: 0.5rem 1rem;
+    background-color: #EF5350; /* Vermelho para Excluir */
+}
+
+li form button:hover {
+    background-color: #E53935;
+}
+
+/* Adicione esta seção ao seu arquivo style.css */
+.login-form input[type="text"],
+.login-form input[type="password"] {
+    width: calc(100% - 2rem); /* 100% menos o padding */
+    padding: 0.75rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    margin: 0.5rem 0; /* Espaçamento entre os campos */
+}
+
+/* Ajuste o botão para alinhamento */
+.login-form button {
+    margin-top: 1rem;
+}
