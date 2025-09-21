@@ -143,26 +143,24 @@ li form {
 li form button {
     width: auto;
     padding: 0.5rem 1rem;
-    background-color: #EF5350; /* Vermelho para Excluir */
+    background-color: #EF5350; 
 }
 
 li form button:hover {
     background-color: #E53935;
 }
 
-/* Adicione esta seção ao seu arquivo style.css */
 .login-form input[type="text"],
 .login-form input[type="password"] {
-    width: calc(100% - 2rem); /* 100% menos o padding */
+    width: calc(100% - 2rem); 
     padding: 0.75rem 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 1rem;
-    margin: 0.5rem 0; /* Espaçamento entre os campos */
+    margin: 0.5rem 0; 
 }
 
-/* Ajuste o botão para alinhamento */
 .login-form button {
     margin-top: 1rem;
 }

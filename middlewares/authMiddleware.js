@@ -11,7 +11,7 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = decoded; // Adiciona os dados do usuário à requisição
+        req.user = decoded; 
         next();
     } catch (err) {
         res.clearCookie('token');

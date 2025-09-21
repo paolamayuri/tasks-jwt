@@ -17,8 +17,6 @@ const Task = db.define('task', {
   },
 });
 
-// Correção: A chave estrangeira deve ser `userId`
-// e a associação deve ser definida no modelo do usuário
 Task.belongsTo(User, { foreignKey: 'userId', as: 'user' });
 
 module.exports = Task;
